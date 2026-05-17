@@ -2394,6 +2394,7 @@ body.light-theme .auth-card {
 
 .auth-form .form-group {
     margin-bottom: 25px;
+    position: relative;
 }
 
 .auth-form input {
@@ -2401,7 +2402,7 @@ body.light-theme .auth-card {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--glass-border);
     color: var(--white);
-    padding: 15px 20px;
+    padding: 15px 45px 15px 20px;
     border-radius: 4px;
     font-family: var(--font-body);
     transition: var(--transition);
@@ -2413,12 +2414,29 @@ body.light-theme .auth-card {
     background: rgba(255, 255, 255, 0.08);
 }
 
+.toggle-password {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-dim);
+    transition: var(--transition);
+    z-index: 5;
+}
+
+.toggle-password:hover {
+    color: var(--primary);
+}
+
 .auth-options {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
     font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .remember-me {
