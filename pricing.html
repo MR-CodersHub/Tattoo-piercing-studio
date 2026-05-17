@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRAVEN | Luxury Tattoo & Piercing Studio</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23b30000%22>D</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .pricing-hero {
+            position: relative;
+            height: 60vh;
+            background: url('assets/images/studio-experience.png') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .pricing-section-title {
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .pricing-section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0;
+        }
+
+        .pricing-section-title .line {
+            flex-grow: 1;
+            height: 1px;
+            background: var(--glass-border);
+        }
+
+        .investment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 100px;
+        }
+
+        .piercing-menu {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .piercing-category h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 10px;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+        }
+
+        .price-item .name {
+            font-weight: 500;
+        }
+
+        .price-item .val {
+            color: var(--primary-light);
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .piercing-menu {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="pricing-page">
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+    <div class="bg-particles"></div>
+
+    <div class="loader-wrapper">
+        <div class="loader">
+            <span class="loader-text">DRAVEN</span>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+        <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo"><i class="fas fa-feather-pointed logo-icon"></i> DRAVEN</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="home2.html">Home 2</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="navbar-utility">
+                    <button class="utility-btn" id="theme-toggle" title="Switch Theme">
+                        <i class="fa-solid fa-circle-half-stroke"></i>
+                    </button>
+                    <div class="user-dropdown-container">
+                        <button class="utility-btn" id="user-btn" title="Member Access">
+                            <i class="fa-regular fa-user"></i>
+                        </button>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+                            <a href="signup.html"><i class="fa-solid fa-user-plus"></i> Sign Up</a>
+                        </div>
+                    </div>
+                    <div class="hamburger"><span></span><span></span><span></span></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pricing-hero">
+            <div class="hero-overlay"></div>
+            <div class="container reveal">
+                <span class="subtitle">Investment Guide</span>
+                <h1 class="hero-title">Premium Craftsmanship</h1>
+                <p class="hero-subtitle" style="max-width: 600px; margin: 20px auto;">Transparent pricing for elite body art. Our rates reflect the years of mastery, clinical safety standards, and bespoke artistry of our residents.</p>
+            </div>
+        </section>
+
+        <!-- Tattoo Pricing -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="pricing-section-title reveal">
+                    <h2>Tattoo Investment</h2>
+                    <div class="line"></div>
+                </div>
+                
+                <div class="investment-grid">
+                    <div class="pricing-card reveal tilt-card">
+                        <div class="pricing-header">
+                            <h3>Shop Minimum</h3>
+                            <div class="price">$150</div>
+                        </div>
+                        <p>For small, simple designs under 1 hour. Includes medical-grade aftercare kit.</p>
+                        <a href="contact.html" class="btn btn-outline btn-block">Book Mini</a>
+                    </div>
+                    
+                    <div class="pricing-card reveal tilt-card featured">
+                        <div class="pricing-header">
+                            <h3>Hourly Rate</h3>
+                            <div class="price">$250<span>/hr</span></div>
+                        </div>
+                        <p>Standard rate for custom multi-session pieces. Billed by actual needle-time.</p>
+                        <a href="contact.html" class="btn btn-primary btn-block">Consult Vision</a>
+                    </div>
+
+                    <div class="pricing-card reveal tilt-card">
+                        <div class="pricing-header">
+                            <h3>Day Rate</h3>
+                            <div class="price">$1,500</div>
+                        </div>
+                        <p>Full 7-hour intensive session. Recommended for sleeves and large-scale realism.</p>
+                        <a href="contact.html" class="btn btn-outline btn-block">Reserve Day</a>
+                    </div>
+                </div>
+
+                <!-- Piercing Pricing -->
+                <div class="pricing-section-title reveal" style="margin-top: 50px;">
+                    <h2>Piercing Services</h2>
+                    <div class="line"></div>
+                </div>
+
+                <div class="piercing-menu reveal">
+                    <div class="piercing-category">
+                        <h3>Ear Piercings</h3>
+                        <div class="price-item"><span class="name">Lobe (Single/Pair)</span><span class="val">$50 / $80</span></div>
+                        <div class="price-item"><span class="name">Cartilage (Helix/Flat)</span><span class="val">$65</span></div>
+                        <div class="price-item"><span class="name">Industrial</span><span class="val">$90</span></div>
+                        <div class="price-item"><span class="name">Daith / Rook / Tragus</span><span class="val">$75</span></div>
+                    </div>
+                    
+                    <div class="piercing-category">
+                        <h3>Facial & Body</h3>
+                        <div class="price-item"><span class="name">Nostril / Septum</span><span class="val">$60 / $85</span></div>
+                        <div class="price-item"><span class="name">Eyebrow</span><span class="val">$70</span></div>
+                        <div class="price-item"><span class="name">Lip / Labret</span><span class="val">$75</span></div>
+                        <div class="price-item"><span class="name">Navel (Belly)</span><span class="val">$85</span></div>
+                        <div class="price-item"><span class="name">Nipple (Pair)</span><span class="val">$120</span></div>
+                    </div>
+                </div>
+                <p class="text-center" style="margin-top: 30px; color: var(--text-dim); font-size: 0.9rem;">* Prices include basic titanium jewelry. Gold and gemstone upgrades available in-studio.</p>
+            </div>
+        </section>
+
+        <!-- Studio Policies -->
+        <section id="policy" class="policy section-padding bg-charcoal">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <span class="subtitle">Booking Protocol</span>
+                    <h2>Studio Policies</h2>
+                </div>
+                <div class="policy-grid">
+                    <div class="policy-card reveal tilt-card">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <h4>Deposits</h4>
+                        <p>A non-refundable $100 deposit is required for all bookings. This amount is deducted from your final total.</p>
+                    </div>
+                    <div class="policy-card reveal tilt-card">
+                        <i class="fas fa-calendar-times"></i>
+                        <h4>Cancellation</h4>
+                        <p>48-hour notice is mandatory for rescheduling. Failure to do so results in forfeiture of your deposit.</p>
+                    </div>
+                    <div class="policy-card reveal tilt-card">
+                        <i class="fas fa-id-card"></i>
+                        <h4>Age Restriction</h4>
+                        <p>Strictly 18+ for tattoos. Minors (16+) may be pierced with parental consent and valid government ID.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <span class="subtitle">Common Concerns</span>
+                    <h2>Investment FAQ</h2>
+                </div>
+                <div class="faq-accordion" style="max-width: 800px; margin: 0 auto;">
+                    <div class="faq-item reveal">
+                        <div class="faq-question">
+                            <h3>Do you offer consultations?</h3>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! We offer a complimentary 15-minute consultation to discuss your vision, placement, and provide a firm quote. Bookings can be made directly after.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal">
+                        <div class="faq-question">
+                            <h3>Is jewelry included in piercing?</h3>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Basic medical-grade titanium jewelry is included in all piercing service prices. We have a vast collection of 14k gold and precious gemstone upgrades available for an additional cost.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo"><i class="fas fa-feather-pointed logo-icon"></i> DRAVEN</a>
+                    <p>Redefining body art through elegance and precision. Your story, immortalized in ink.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Studio</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="pricing.html" class="active">Pricing</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 DRAVEN. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
+
+

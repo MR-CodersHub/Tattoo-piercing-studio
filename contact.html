@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRAVEN | Luxury Tattoo & Piercing Studio</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23b30000%22>D</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <div class="bg-particles"></div>
+
+    <!-- Preloader -->
+    <div class="loader-wrapper">
+        <div class="loader">
+            <span class="loader-text">DRAVEN</span>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+        <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo"><i class="fas fa-feather-pointed logo-icon"></i> DRAVEN</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="home2.html">Home 2</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="navbar-utility">
+                    <button class="utility-btn" id="theme-toggle" title="Switch Theme">
+                        <i class="fa-solid fa-circle-half-stroke"></i>
+                    </button>
+                    <div class="user-dropdown-container">
+                        <button class="utility-btn" id="user-btn" title="Member Access">
+                            <i class="fa-regular fa-user"></i>
+                        </button>
+                        <div class="user-dropdown" id="user-dropdown">
+                            <a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+                            <a href="signup.html"><i class="fa-solid fa-user-plus"></i> Sign Up</a>
+                        </div>
+                    </div>
+                    <div class="hamburger"><span></span><span></span><span></span></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>Get In Touch</h1>
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a> / Contact
+                </div>
+            </div>
+        </div>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="booking-grid">
+                    <div class="booking-content reveal">
+                        <span class="subtitle">Connect</span>
+                        <h2>Let's Start Your Project</h2>
+                        <p>Have a question or ready to book your next session? Reach out to us using the form or visit our studio in the heart of the Art District.</p>
+                        
+                        <div class="contact-info-list">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Our Studio</h4>
+                                    <span>123 Art District, Downtown, NY 10001</span>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>
+                                    <h4>Call Us</h4>
+                                    <span>+1 (555) 012-3456</span>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email Us</h4>
+                                    <span>contact@inkessence.com</span>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Business Hours</h4>
+                                    <span>Mon - Sat: 11am - 8pm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form id="consultation-form" class="booking-form reveal">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" id="name" placeholder="John Doe" required>
+                                <span class="error-msg">Name is required</span>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="email" placeholder="john@example.com" required>
+                                <span class="error-msg">Valid email is required</span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" id="phone" placeholder="+1 (555) 000-0000" required>
+                                <span class="error-msg">Phone number is required</span>
+                            </div>
+                            <div class="form-group">
+                                <label>Preferred Artist</label>
+                                <select id="artist" required>
+                                    <option value="" disabled selected>Select Artist</option>
+                                    <option value="alex">Alex Vane</option>
+                                    <option value="sarah">Sarah Thorne</option>
+                                    <option value="any">No Preference</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Type</label>
+                                <select id="type" required>
+                                    <option value="" disabled selected>Service Type</option>
+                                    <option value="tattoo">Tattoo</option>
+                                    <option value="piercing">Piercing</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Consultation Type</label>
+                                <select id="consult-type" required>
+                                    <option value="in-person">In-Person</option>
+                                    <option value="virtual">Virtual (Video Call)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Vision & Details</label>
+                            <textarea id="message" rows="5" placeholder="Describe your idea, placement, and size..." required></textarea>
+                            <span class="error-msg">Please describe your request</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Submit Consultation Request</button>
+                        <div id="form-status" class="form-status"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Google Map Section -->
+        <section class="map-section reveal">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.119763973046!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1684234567890!5m2!1sen!2sus" 
+                width="100%" 
+                height="500" 
+                style="border:0; filter: grayscale(1) invert(1) contrast(1.2) opacity(0.8); border-top: 1px solid var(--glass-border);" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 DRAVEN. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
+
+
