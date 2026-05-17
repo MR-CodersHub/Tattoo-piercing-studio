@@ -1216,27 +1216,44 @@ img {
 
 /* Footer */
 .footer {
-    padding: 80px 0 30px;
-    background: #000;
+    padding: 100px 0 40px;
+    background: #050505;
     border-top: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0.5;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1.5fr;
-    gap: 60px;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 50px;
     margin-bottom: 60px;
 }
 
 .footer-brand .logo {
-    margin-bottom: 20px;
-    display: inline-block;
+    margin-bottom: 25px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 2rem;
 }
 
-.footer-brand p {
+.footer-brand .footer-desc {
     color: var(--text-dim);
-    margin-bottom: 30px;
-    max-width: 400px;
+    margin-bottom: 35px;
+    max-width: 380px;
+    font-size: 0.95rem;
+    line-height: 1.8;
 }
 
 .social-icons {
@@ -1245,64 +1262,173 @@ img {
 }
 
 .social-icons a {
-    width: 40px;
-    height: 40px;
-    background: var(--bg-charcoal);
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     color: var(--white);
+    transition: var(--transition);
 }
 
 .social-icons a:hover {
     background: var(--primary);
+    border-color: var(--primary);
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(179, 0, 0, 0.3);
 }
 
-.footer-links h4, .footer-newsletter h4 {
-    margin-bottom: 25px;
-    font-size: 1.2rem;
+.footer-col h4 {
+    margin-bottom: 30px;
+    font-size: 1.3rem;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--primary);
+}
+
+.footer-links ul {
+    list-style: none;
 }
 
 .footer-links li {
-    margin-bottom: 12px;
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.footer-links a i {
+    font-size: 0.7rem;
+    color: var(--primary);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: var(--transition);
 }
 
 .footer-links a:hover {
-    color: var(--primary);
-    padding-left: 5px;
-}
-
-.newsletter-form {
-    display: flex;
-    margin-top: 20px;
-}
-
-.newsletter-form input {
-    flex: 1;
-    background: var(--bg-charcoal);
-    border: 1px solid var(--glass-border);
-    padding: 15px;
     color: var(--white);
-    border-radius: 5px 0 0 5px;
 }
 
-.newsletter-form button {
+.footer-links a:hover i {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.footer-contact .contact-info {
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    font-size: 0.95rem;
+}
+
+.footer-contact .contact-info i {
+    color: var(--primary);
+    margin-top: 5px;
+}
+
+.footer-newsletter-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    margin-bottom: 60px;
+}
+
+.newsletter-content h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.newsletter-content p {
+    color: var(--text-dim);
+    margin: 0;
+}
+
+.premium-form {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.premium-form input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--glass-border);
+    padding: 15px 25px;
+    color: var(--white);
+    border-radius: 4px;
+    outline: none;
+    transition: var(--transition);
+}
+
+.premium-form input:focus {
+    border-color: var(--primary);
+}
+
+.premium-form button {
     background: var(--primary);
     color: var(--white);
     border: none;
-    padding: 0 20px;
-    border-radius: 0 5px 5px 0;
+    padding: 0 30px;
+    border-radius: 4px;
     cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.premium-form button:hover {
+    background: #ff1a1a;
+    box-shadow: 0 5px 15px rgba(179, 0, 0, 0.4);
 }
 
 .footer-bottom {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-top: 30px;
     border-top: 1px solid var(--glass-border);
     color: var(--text-dim);
     font-size: 0.9rem;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-legal a {
+    color: var(--text-dim);
+    transition: var(--transition);
+}
+
+.footer-legal a:hover {
+    color: var(--primary);
 }
 
 /* Lightbox */
@@ -1646,17 +1772,62 @@ img {
         gap: 25px;
     }
 
+    .footer {
+        padding: 60px 0 30px;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 40px;
+        margin-bottom: 40px;
     }
 
     .footer-brand .logo {
         justify-content: center;
     }
 
+    .footer-brand .footer-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .social-icons {
         justify-content: center;
+    }
+
+    .footer-contact .contact-info {
+        justify-content: center;
+        font-size: 0.9rem;
+    }
+
+    .footer-newsletter-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 25px 15px;
+    }
+
+    .premium-form {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .premium-form button {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .footer-legal {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
     }
 }
 
@@ -2285,12 +2456,41 @@ body.light-theme .footer {
 }
 body.light-theme .footer h4, 
 body.light-theme .footer .logo, 
-body.light-theme .footer-bottom p { 
+body.light-theme .footer-bottom p,
+body.light-theme .newsletter-content h4 { 
     color: #000000; 
 }
-body.light-theme .footer a { color: #444444; }
-body.light-theme .footer a:hover { color: var(--primary); }
-body.light-theme .footer .social-icons a { background: #ffffff; color: #000000; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+body.light-theme .footer-brand .footer-desc,
+body.light-theme .footer-contact .contact-info,
+body.light-theme .footer-links a,
+body.light-theme .footer-legal a,
+body.light-theme .newsletter-content p {
+    color: #555555;
+}
+body.light-theme .footer a:hover,
+body.light-theme .footer-legal a:hover { 
+    color: var(--primary); 
+}
+body.light-theme .footer .social-icons a { 
+    background: #ffffff; 
+    color: #000000; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+    border-color: rgba(0,0,0,0.05);
+}
+body.light-theme .footer .social-icons a:hover {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+}
+body.light-theme .footer-newsletter-row {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.08);
+}
+body.light-theme .premium-form input {
+    background: #f0f0f0;
+    color: #000000;
+    border-color: rgba(0,0,0,0.1);
+}
 
 /* Other Sections */
 body.light-theme .bg-charcoal { background: #ffffff; }
@@ -2476,4 +2676,128 @@ body.light-theme .auth-card {
 
 .auth-footer a:hover {
     text-decoration: underline;
+}
+
+/* --- MOBILE & VIEWPORT OPTIMIZATIONS (360PX AND BELOW) --- */
+@media (max-width: 480px) {
+    /* Prevent fixed header and centered hero content overlap on mobile */
+    .hero {
+        min-height: 100vh !important;
+        height: auto !important;
+        padding-top: 130px !important;
+        padding-bottom: 60px !important;
+        display: flex !important;
+        align-items: flex-start !important;
+    }
+    
+    /* Sleeker typography for 360px viewport screen sizes */
+    .hero-title {
+        font-size: 2.3rem !important;
+        line-height: 1.1 !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem !important;
+        margin-bottom: 1.8rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    /* Sleeker mobile buttons with stacking and full-width */
+    .hero-btns {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 12px !important;
+    }
+    
+    .hero-btns .btn {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 14px 20px !important;
+        font-size: 0.9rem !important;
+        display: block !important;
+    }
+}
+
+/* --- LIGHT MODE HEADER & BUTTON CONTRAST IN THE HERO --- */
+/* The hero section is always dark, so text and buttons inside it must stay highly readable (white/red) regardless of the theme toggle! */
+
+/* Force hero secondary/outline buttons to remain white/primary in Light Mode */
+body.light-theme .hero-btns .btn-secondary,
+body.light-theme .home2-hero .btn-secondary {
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+    background: transparent !important;
+}
+
+body.light-theme .hero-btns .btn-secondary:hover,
+body.light-theme .home2-hero .btn-secondary:hover {
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+body.light-theme .hero-btns .btn-outline,
+body.light-theme .home2-hero .btn-outline {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #ffffff !important;
+    background: transparent !important;
+}
+
+body.light-theme .hero-btns .btn-outline:hover,
+body.light-theme .home2-hero .btn-outline:hover {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+/* --- HEADER UX ENHANCEMENT --- */
+/* In Light Mode, when at the top of the page, the fixed header is transparent over the dark hero background.
+   So the logo, navigation links, utility buttons, and hamburger icon MUST stay white.
+   They only turn black when the user scrolls and the header gets its solid light background! */
+
+body.light-theme .header:not(.scrolled) .logo {
+    color: #ffffff !important;
+}
+
+body.light-theme .header:not(.scrolled) .nav-links a {
+    color: #ffffff !important;
+}
+
+body.light-theme .header:not(.scrolled) .utility-btn {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.light-theme .header:not(.scrolled) .hamburger span {
+    background: #ffffff !important;
+}
+
+/* Ensure hamburger icon is completely visible and centered inside utility list on all mobile viewports */
+@media (max-width: 991px) {
+    .navbar-utility {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+    
+    .hamburger {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        width: 28px !important;
+        height: 18px !important;
+        cursor: pointer !important;
+        z-index: 2000 !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+    
+    .hamburger span {
+        display: block !important;
+        width: 100% !important;
+        height: 2px !important;
+        transition: var(--transition) !important;
+    }
 }
