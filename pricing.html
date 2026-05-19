@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,6 +45,7 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-bottom: 100px;
+            align-items: stretch;
         }
 
         .piercing-menu {
@@ -86,10 +87,7 @@
         }
     </style>
 </head>
-<body class="pricing-page">
-    <div class="custom-cursor"></div>
-    <div class="custom-cursor-follower"></div>
-    <div class="bg-particles"></div>
+<body class="pricing-page">    <div class="bg-particles"></div>
 
     <div class="loader-wrapper">
         <div class="loader">
@@ -149,6 +147,7 @@
                 </div>
                 
                 <div class="investment-grid">
+                    <!-- Card 1: Shop Minimum -->
                     <div class="pricing-card reveal tilt-card">
                         <div class="pricing-header">
                             <h3>Shop Minimum</h3>
@@ -157,7 +156,8 @@
                         <p>For small, simple designs under 1 hour. Includes medical-grade aftercare kit.</p>
                         <a href="contact.html" class="btn btn-outline btn-block">Book Mini</a>
                     </div>
-                    
+
+                    <!-- Card 2: Hourly Rate (featured) -->
                     <div class="pricing-card reveal tilt-card featured">
                         <div class="pricing-header">
                             <h3>Hourly Rate</h3>
@@ -167,6 +167,7 @@
                         <a href="contact.html" class="btn btn-primary btn-block">Consult Vision</a>
                     </div>
 
+                    <!-- Card 3: Day Rate -->
                     <div class="pricing-card reveal tilt-card">
                         <div class="pricing-header">
                             <h3>Day Rate</h3>

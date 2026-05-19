@@ -1,36 +1,10 @@
-/* 
+﻿/* 
    DRAVEN 
    Interactivity & Animations
 */
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Custom Cursor
-    const cursor = document.querySelector('.custom-cursor');
-    const follower = document.querySelector('.custom-cursor-follower');
-    
-    if (window.innerWidth > 768) {
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-            follower.style.transform = `translate3d(${e.clientX - 15}px, ${e.clientY - 15}px, 0)`;
-        });
-
-        document.querySelectorAll('a, button, .faq-question, .gallery-item, .choice-card').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.transform += ' scale(2.5)';
-                cursor.style.background = 'rgba(179, 0, 0, 0.5)';
-                follower.style.transform += ' scale(1.5)';
-                follower.style.borderColor = 'transparent';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.transform = cursor.style.transform.replace(' scale(2.5)', '');
-                cursor.style.background = '#ff0000';
-                follower.style.transform = follower.style.transform.replace(' scale(1.5)', '');
-                follower.style.borderColor = '#ff0000';
-            });
-        });
-    }
-
     // 2. Preloader with Failsafe
     const loader = document.querySelector('.loader-wrapper');
     const hideLoader = () => {
@@ -343,6 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
     // Premium Navbar Utility - Logic
     const userBtn = document.getElementById("user-btn");
     const themeToggle = document.getElementById("theme-toggle");
