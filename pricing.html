@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,11 +15,54 @@
         .pricing-hero {
             position: relative;
             height: 60vh;
-            background: url('assets/images/studio-experience.png') no-repeat center center/cover;
+            min-height: 440px;
+            background: url('assets/images/pricing-hero.png') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            padding-top: 72px; /* offset for fixed 72px navbar height */
+        }
+
+        .pricing-hero .hero-overlay {
+            background: linear-gradient(135deg,
+                rgba(5, 5, 5, 0.45) 0%,
+                rgba(5, 5, 5, 0.35) 100%);
+        }
+
+        .pricing-hero .container {
+            position: relative;
+            z-index: 2;
+            padding: 30px 20px;
+        }
+
+        .pricing-hero .subtitle {
+            display: block;
+            margin-bottom: 14px;
+            letter-spacing: 4px;
+        }
+
+        .pricing-hero .hero-title {
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            line-height: 1.05;
+            margin: 0 0 20px;
+        }
+
+        .pricing-hero .hero-subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.78);
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-hero {
+                height: auto;
+                min-height: 380px;
+                padding-top: 100px;
+                padding-bottom: 50px;
+            }
         }
 
         .pricing-section-title {
@@ -40,13 +83,7 @@
             background: var(--glass-border);
         }
 
-        .investment-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 100px;
-            align-items: stretch;
-        }
+
 
         .piercing-menu {
             display: grid;
@@ -149,6 +186,9 @@
                 <div class="investment-grid">
                     <!-- Card 1: Shop Minimum -->
                     <div class="pricing-card reveal tilt-card">
+                        <div class="card-img">
+                            <img src="assets/images/gallery-tattoo1.png" alt="Shop Minimum">
+                        </div>
                         <div class="pricing-header">
                             <h3>Shop Minimum</h3>
                             <div class="price">$150</div>
@@ -159,6 +199,9 @@
 
                     <!-- Card 2: Hourly Rate (featured) -->
                     <div class="pricing-card reveal tilt-card featured">
+                        <div class="card-img">
+                            <img src="assets/images/studio-experience.png" alt="Hourly Rate" style="object-position: top;">
+                        </div>
                         <div class="pricing-header">
                             <h3>Hourly Rate</h3>
                             <div class="price">$250<span>/hr</span></div>
@@ -169,6 +212,9 @@
 
                     <!-- Card 3: Day Rate -->
                     <div class="pricing-card reveal tilt-card">
+                        <div class="card-img">
+                            <img src="assets/images/gallery-tattoo2.png" alt="Day Rate">
+                        </div>
                         <div class="pricing-header">
                             <h3>Day Rate</h3>
                             <div class="price">$1,500</div>
@@ -240,11 +286,10 @@
                     <span class="subtitle">Common Concerns</span>
                     <h2>Investment FAQ</h2>
                 </div>
-                <div class="faq-accordion" style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-grid">
                     <div class="faq-item reveal">
                         <div class="faq-question">
                             <h3>Do you offer consultations?</h3>
-                            <i class="fas fa-plus"></i>
                         </div>
                         <div class="faq-answer">
                             <p>Yes! We offer a complimentary 15-minute consultation to discuss your vision, placement, and provide a firm quote. Bookings can be made directly after.</p>
@@ -253,7 +298,6 @@
                     <div class="faq-item reveal">
                         <div class="faq-question">
                             <h3>Is jewelry included in piercing?</h3>
-                            <i class="fas fa-plus"></i>
                         </div>
                         <div class="faq-answer">
                             <p>Basic medical-grade titanium jewelry is included in all piercing service prices. We have a vast collection of 14k gold and precious gemstone upgrades available for an additional cost.</p>

@@ -1,4 +1,4 @@
-﻿/* 
+/* 
    DRAVEN 
    Interactivity & Animations
 */
@@ -34,35 +34,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+    const updateScrollState = () => {
+        if (header) {
+            header.classList.toggle('scrolled', window.scrollY > 50);
         }
+    };
 
-        // Parallax Effect
-        const parallaxImages = document.querySelectorAll('.parallax');
-        parallaxImages.forEach(img => {
-            const speed = 0.5;
-            const yPos = -(window.pageYOffset * speed);
-            img.style.transform = `translateY(${yPos}px)`;
-        });
-    });
+    window.addEventListener('scroll', updateScrollState, { passive: true });
+    updateScrollState();
 
     // 4. Mobile Menu
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-links');
 
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        hamburger.classList.toggle('toggle');
-    });
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
 
-    document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('toggle');
-    }));
+        document.querySelectorAll('.nav-links a').forEach(n => n.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('toggle');
+        }));
+    }
 
     // 5. Scroll Reveal with Stagger
     const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
@@ -198,23 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 8. FAQ Accordion
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        question.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
-            
-            // Close all other items
-            faqItems.forEach(i => i.classList.remove('active'));
-            
-            if (!isActive) {
-                item.classList.add('active');
-            }
-        });
-    });
-
     // 9. Form Validation & Submission
     const forms = document.querySelectorAll('form');
 
@@ -318,24 +296,93 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Premium Navbar Utility - Logic
+    // ================================================================
+    //  UTILITY CONTROLS: RTL + Theme Toggle (Main Site & Auth Pages)
+    // ================================================================
     const userBtn = document.getElementById("user-btn");
     const themeToggle = document.getElementById("theme-toggle");
     const premiumDropdown = document.getElementById("user-dropdown");
     const body = document.body;
 
-    // 1. Theme Switcher Logic
-    if (themeToggle) {
-        // Initialize theme
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme === "light") {
-            body.classList.add("light-theme");
-        }
+    // --- Helper: apply RTL state to all matching toggle buttons ---
+    function applyRTLState(isRTL) {
+        body.classList.toggle('rtl-mode', isRTL);
+        document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+        // Sync all RTL toggle buttons on the page
+        document.querySelectorAll('.rtl-toggle').forEach(btn => {
+            btn.classList.toggle('active', isRTL);
+        });
+        localStorage.setItem('rtl-mode', String(isRTL));
+    }
 
-        themeToggle.addEventListener("click", () => {
-            body.classList.toggle("light-theme");
-            const isLight = body.classList.contains("light-theme");
-            localStorage.setItem("theme", isLight ? "light" : "dark");
+    // --- Helper: apply Theme state ---
+    function applyThemeState(isLight) {
+        body.classList.toggle('light-theme', isLight);
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    }
+
+    // ---- Inject RTL button into main-site .navbar-utility (if not already present) ----
+    document.querySelectorAll('.navbar-utility').forEach((utility) => {
+        if (!utility.querySelector('#rtl-toggle')) {
+            const rtlBtn = document.createElement('button');
+            rtlBtn.type = 'button';
+            rtlBtn.id = 'rtl-toggle';
+            rtlBtn.className = 'utility-btn rtl-toggle';
+            rtlBtn.title = 'Toggle Right-to-Left layout';
+            rtlBtn.setAttribute('aria-label', 'Toggle Right-to-Left layout');
+            rtlBtn.innerHTML = '<i class="fa-solid fa-right-left"></i><span class="rtl-label">RTL</span>';
+            utility.insertBefore(rtlBtn, utility.firstChild);
+        }
+    });
+
+    // ---- Restore saved state on page load ----
+    const savedTheme = localStorage.getItem('theme');
+    const savedRTL   = localStorage.getItem('rtl-mode');
+
+    if (savedTheme === 'light') {
+        body.classList.add('light-theme');
+    }
+    if (savedRTL === 'true') {
+        body.classList.add('rtl-mode');
+        document.documentElement.dir = 'rtl';
+        // Mark all RTL toggles active (after DOM is ready)
+        document.querySelectorAll('.rtl-toggle').forEach(btn => btn.classList.add('active'));
+    } else {
+        document.documentElement.dir = 'ltr';
+    }
+
+    // ---- Main-site theme toggle (#theme-toggle in navbar) ----
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isLight = body.classList.toggle('light-theme');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+    }
+
+    // ---- Main-site RTL toggle (injected #rtl-toggle) ----
+    const mainRTLToggle = document.getElementById('rtl-toggle');
+    if (mainRTLToggle) {
+        mainRTLToggle.addEventListener('click', () => {
+            const isRTL = !body.classList.contains('rtl-mode');
+            applyRTLState(isRTL);
+        });
+    }
+
+    // ---- Auth-page theme toggle (#auth-theme-toggle) ----
+    const authThemeToggle = document.getElementById('auth-theme-toggle');
+    if (authThemeToggle) {
+        authThemeToggle.addEventListener('click', () => {
+            const isLight = body.classList.toggle('light-theme');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+    }
+
+    // ---- Auth-page RTL toggle (#auth-rtl-toggle) ----
+    const authRTLToggle = document.getElementById('auth-rtl-toggle');
+    if (authRTLToggle) {
+        authRTLToggle.addEventListener('click', () => {
+            const isRTL = !body.classList.contains('rtl-mode');
+            applyRTLState(isRTL);
         });
     }
 
@@ -360,11 +407,11 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.addEventListener('click', function() {
             const targetId = this.getAttribute('data-target');
             const targetInput = document.getElementById(targetId);
-            
+
             if (targetInput) {
                 const type = targetInput.getAttribute('type') === 'password' ? 'text' : 'password';
                 targetInput.setAttribute('type', type);
-                
+
                 // Toggle the icon class
                 this.classList.toggle('fa-eye');
                 this.classList.toggle('fa-eye-slash');
